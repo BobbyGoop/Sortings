@@ -1,11 +1,9 @@
-import sys
-
-
 from interface.form import *
 from random import randint
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 import time
+import sys
 
 
 class MyWin(QtWidgets.QFrame):
@@ -17,6 +15,7 @@ class MyWin(QtWidgets.QFrame):
         self.ui.pushButton_2.clicked.connect(sys.exit)
         self.ui.commandLinkButton.clicked.connect(self.ui.textEdit.clear)
         self.setWindowIcon(QIcon('interface/icon.ico'))
+
     def get_started(self):
         sorting = self.ui.cb.currentText()
         if sorting == "Сортировка вставками":
@@ -111,8 +110,8 @@ class MyWin(QtWidgets.QFrame):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    app.setStyle("Fusion")
-    myapp = MyWin()
-    myapp.show()
-    sys.exit(app.exec_())
+    form = QtWidgets.QApplication(sys.argv)
+    form.setStyle("Fusion")
+    application = MyWin()
+    application.show()
+    sys.exit(form.exec_())
